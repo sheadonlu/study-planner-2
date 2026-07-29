@@ -6,7 +6,8 @@ export default {
     extend: {
       colors: {
         ink: "#0B0F19",
-        surface: "#F6F9FE",
+        surface: "#F5F5F4",
+        accent: "#38b156",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

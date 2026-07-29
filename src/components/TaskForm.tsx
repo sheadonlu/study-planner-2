@@ -50,7 +50,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm"
+      className="rounded-lg border border-ink/10 bg-white p-6"
     >
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-ink/60">
         Add a task
@@ -64,7 +64,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="What's next..."
-            className="rounded-lg border border-ink/15 bg-surface px-3 py-2 text-ink outline-none focus:border-ink/40"
+            className="rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:border-accent"
           />
         </label>
 
@@ -74,7 +74,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
             type="date"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
-            className="rounded-lg border border-ink/15 bg-surface px-3 py-2 text-ink outline-none focus:border-ink/40"
+            className="rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:border-accent"
           />
         </label>
 
@@ -85,7 +85,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
             min={1}
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
-            className="rounded-lg border border-ink/15 bg-surface px-3 py-2 text-ink outline-none focus:border-ink/40"
+            className="rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:border-accent"
           />
         </label>
 
@@ -94,7 +94,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
           <select
             value={priority}
             onChange={(e) => setPriority(e.target.value as Priority)}
-            className="rounded-lg border border-ink/15 bg-surface px-3 py-2 text-ink outline-none focus:border-ink/40"
+            className="rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:border-accent"
           >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
@@ -107,7 +107,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
 
       <button
         type="submit"
-        className="mt-5 rounded-lg bg-ink px-4 py-2 text-sm font-medium text-white transition hover:bg-ink/90"
+        className="mt-5 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
       >
         Add task
       </button>

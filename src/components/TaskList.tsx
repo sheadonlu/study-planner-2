@@ -63,7 +63,7 @@ function TaskList({ tasks, onToggleDone, onDelete, onEdit }: TaskListProps) {
   }, [tasks, search, filter, sortKey]);
 
   return (
-    <div className="rounded-2xl border border-ink/10 bg-white p-6 shadow-sm">
+    <div className="rounded-lg border border-ink/10 bg-white p-6">
       <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-ink/60">
         Your tasks
       </h2>
@@ -74,13 +74,13 @@ function TaskList({ tasks, onToggleDone, onDelete, onEdit }: TaskListProps) {
           placeholder="Search tasks..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="min-w-[10rem] flex-1 rounded-lg border border-ink/15 bg-surface px-3 py-2 text-sm outline-none focus:border-ink/40"
+          className="min-w-[10rem] flex-1 rounded-lg border border-ink/15 bg-white px-3 py-2 text-sm outline-none focus:border-accent"
         />
 
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value as Filter)}
-          className="rounded-lg border border-ink/15 bg-surface px-3 py-2 text-sm outline-none focus:border-ink/40"
+          className="rounded-lg border border-ink/15 bg-white px-3 py-2 text-sm outline-none focus:border-accent"
         >
           <option value="all">All</option>
           <option value="upcoming">Upcoming</option>
@@ -92,7 +92,7 @@ function TaskList({ tasks, onToggleDone, onDelete, onEdit }: TaskListProps) {
         <select
           value={sortKey}
           onChange={(e) => setSortKey(e.target.value as SortKey)}
-          className="rounded-lg border border-ink/15 bg-surface px-3 py-2 text-sm outline-none focus:border-ink/40"
+          className="rounded-lg border border-ink/15 bg-white px-3 py-2 text-sm outline-none focus:border-accent"
         >
           <option value="dueAsc">Due date (earliest first)</option>
           <option value="dueDesc">Due date (latest first)</option>

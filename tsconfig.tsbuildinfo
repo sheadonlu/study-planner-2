@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/hero.tsx","./src/components/planpanel.tsx","./src/components/taskform.tsx","./src/components/tasklist.tsx","./src/components/taskrow.tsx","./src/lib/scheduling.ts","./src/lib/storage.ts"],"version":"5.9.3"}

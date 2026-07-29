@@ -43,7 +43,7 @@ function TaskRow({ task, onToggleDone, onDelete, onEdit }: TaskRowProps) {
 
   if (isEditing) {
     return (
-      <li className="flex flex-wrap items-center gap-2 rounded-xl border border-ink/15 bg-surface p-3">
+      <li className="flex flex-wrap items-center gap-2 rounded-lg border border-ink/15 bg-white p-3">
         <input
           type="text"
           value={draftTitle}
@@ -74,7 +74,7 @@ function TaskRow({ task, onToggleDone, onDelete, onEdit }: TaskRowProps) {
         />
         <button
           onClick={saveEdit}
-          className="rounded-lg bg-ink px-3 py-1 text-sm font-medium text-white hover:bg-ink/90"
+          className="rounded-lg bg-accent px-3 py-1 text-sm font-medium text-white hover:opacity-90"
         >
           Save
         </button>
@@ -89,12 +89,12 @@ function TaskRow({ task, onToggleDone, onDelete, onEdit }: TaskRowProps) {
   }
 
   return (
-    <li className="flex flex-wrap items-center gap-3 rounded-xl border border-ink/10 bg-white p-3">
+    <li className="flex flex-wrap items-center gap-3 rounded-lg border border-ink/10 bg-white p-3">
       <input
         type="checkbox"
         checked={task.done}
         onChange={() => onToggleDone(task.id)}
-        className="h-4 w-4"
+        className="h-4 w-4 accent-accent"
       />
 
       <span

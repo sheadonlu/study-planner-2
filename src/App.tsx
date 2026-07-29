@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Task } from "./types";
 import { loadTasks, saveTasks, seedTasks } from "./lib/storage";
+import Hero from "./components/Hero";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import PlanPanel from "./components/PlanPanel";
@@ -19,14 +20,14 @@ function App() {
     if (tasks.length > 0) saveTasks(tasks);
   }, [tasks]);
 
+  function addTask(task: Task) {
+    setTasks((prev) => [...prev, task]);
+  }
+
   function toggleDone(id: string) {
     setTasks((prev) =>
       prev.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
     );
-  }
-
-  function addTask(task: Task) {
-    setTasks((prev) => [...prev, task]);
   }
 
   function deleteTask(id: string) {
@@ -40,19 +41,26 @@ function App() {
   }
 
   return (
-    <div style={{ fontFamily: "sans-serif", padding: "2rem" }}>
-      <h1>Optimized Study Planner</h1>
+    <div className="min-h-screen bg-white">
+      <div className="mx-auto max-w-4xl px-6">
+        <Hero
+          taskCount={tasks.length}
+          doneCount={tasks.filter((t) => t.done).length}
+        />
 
-      <TaskForm onAdd={addTask} />
+        <main className="flex flex-col gap-8 py-8">
+          <TaskForm onAdd={addTask} />
 
-      <TaskList
-        tasks={tasks}
-        onToggleDone={toggleDone}
-        onDelete={deleteTask}
-        onEdit={editTask}
-      />
+          <TaskList
+            tasks={tasks}
+            onToggleDone={toggleDone}
+            onDelete={deleteTask}
+            onEdit={editTask}
+          />
 
-      <PlanPanel tasks={tasks} />
+          <PlanPanel tasks={tasks} />
+        </main>
+      </div>
     </div>
   );
 }
