@@ -4,6 +4,8 @@ A lightweight, browser-based task manager built for students — but one that
 treats scheduling as an optimization problem instead of just sorting by due
 date. No account, no backend, no setup beyond `npm install`.
 
+Live App: https://optimized-study-planner.vercel.app/
+
 ## 🚀 Tech Stack
 
 * React 18
