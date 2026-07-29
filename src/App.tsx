@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Task } from "./types";
-import { loadTasks, saveTasks, seedTasks } from "./lib/storage";
+import { loadTasks, saveTasks } from "./lib/storage";
 import Hero from "./components/Hero";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
@@ -8,17 +8,21 @@ import PlanPanel from "./components/PlanPanel";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   // Load from localStorage on first render; fall back to seed data if empty
   useEffect(() => {
     const stored = loadTasks();
-    setTasks(stored.length > 0 ? stored : seedTasks());
+    setTasks(stored);
+    setHasLoaded(true);
   }, []);
 
-  // Persist to localStorage any time tasks change
+  // Persist to localStorage any time tasks change — but only after the
+  // initial load has completed, so we don't overwrite real saved data
+  // with an empty array before loadTasks() has had a chance to run.
   useEffect(() => {
-    if (tasks.length > 0) saveTasks(tasks);
-  }, [tasks]);
+    if (hasLoaded) saveTasks(tasks);
+  }, [tasks, hasLoaded]);
 
   function addTask(task: Task) {
     setTasks((prev) => [...prev, task]);
